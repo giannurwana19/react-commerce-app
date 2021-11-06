@@ -16,7 +16,7 @@ const Navbar = () => {
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography variant="h6" classes={classes.title}>
-            Gianpedia
+            Ginpedia
           </Typography>
           <div className={classes.grow} />
           <div className={classes.button}>

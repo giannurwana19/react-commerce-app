@@ -16,23 +16,25 @@ const Product = ({ product }) => {
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={product.image}
+        image={product.image.url}
         title={product.name}
         height="140"
         alt="image"
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h6" gutterBottom>
             {product.name}
           </Typography>
-          <Typography variant="h5" gutterBottom>
-            {product.price}
-          </Typography>
         </div>
-        <Typography variant="body2" color="textSecondary">
-          {product.description}
+        <Typography variant="body2" gutterBottom>
+          {product.price.formatted_with_symbol}
         </Typography>
+        <Typography
+          dangerouslySetInnerHTML={{ __html: product.description }}
+          variant="body2"
+          color="textSecondary"
+        />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton aria-label="Add to Cart">
