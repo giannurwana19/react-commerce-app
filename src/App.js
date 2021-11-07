@@ -49,22 +49,20 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Navbar totalItems={cart.total_items} />
-        <Switch>
-          <Route exact path="/">
-            <Products products={products} handleAddToCart={handleAddToCart} />
-          </Route>
-          <Route exact path="/cart">
-            <Cart
-              cart={cart}
-              handleUpdateCartQty={handleUpdateCartQty}
-              handleRemoveFromCart={handleRemoveFromCart}
-              handleEmptyCart={handleEmptyCart}
-            />
-          </Route>
-        </Switch>
-      </div>
+      <Navbar totalItems={cart?.total_items || 0} />
+      <Switch>
+        <Route exact path="/">
+          <Products products={products} handleAddToCart={handleAddToCart} />
+        </Route>
+        <Route exact path="/cart">
+          <Cart
+            cart={cart}
+            handleUpdateCartQty={handleUpdateCartQty}
+            handleRemoveFromCart={handleRemoveFromCart}
+            handleEmptyCart={handleEmptyCart}
+          />
+        </Route>
+      </Switch>
     </Router>
   );
 }

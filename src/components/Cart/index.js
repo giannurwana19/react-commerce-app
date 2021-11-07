@@ -59,15 +59,13 @@ const Cart = ({
     </>
   );
 
-  if (!cart.line_items) return 'Loading ...';
-
   return (
     <Container>
       <div className={classes.toolbar} />
       <Typography variant="h5" className={classes.title} gutterBottom>
         Keranjang Belanjamu
       </Typography>
-      {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+      {!cart?.line_items?.length ? <EmptyCart /> : <FilledCart />}
     </Container>
   );
 };
