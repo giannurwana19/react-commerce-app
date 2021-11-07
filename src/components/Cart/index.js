@@ -1,13 +1,21 @@
 import { Button, Container, Grid, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 import useStyles from './styles';
 
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  handleUpdateCartQty,
+  handleRemoveFromCart,
+  handleEmptyCart,
+}) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
     <Typography variant="subtitle1">
-      Kamu tidak punya item di dalam keranjang, ayo belanja sekarang!
+      <Link to="/" className={classes.link}>
+        Kamu tidak punya item di dalam keranjang, ayo belanja sekarang!
+      </Link>
     </Typography>
   );
 
@@ -16,7 +24,11 @@ const Cart = ({ cart }) => {
       <Grid container spacing={3}>
         {cart.line_items.map(item => (
           <Grid item xs={12} sm={4} key={item.id}>
-            <CartItem item={item} />
+            <CartItem
+              item={item}
+              handleUpdateCartQty={handleUpdateCartQty}
+              handleRemoveFromCart={handleRemoveFromCart}
+            />
           </Grid>
         ))}
       </Grid>
@@ -30,7 +42,8 @@ const Cart = ({ cart }) => {
             size="large"
             type="button"
             variant="contained"
-            color="secondary">
+            color="secondary"
+            onClick={handleEmptyCart}>
             Hapus semua item
           </Button>
           <Button
