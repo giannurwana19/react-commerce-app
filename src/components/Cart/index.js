@@ -47,6 +47,8 @@ const Cart = ({
             Hapus semua item
           </Button>
           <Button
+            component={Link}
+            to="/checkout"
             className={classes.emptyButton}
             size="large"
             type="button"
