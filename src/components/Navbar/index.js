@@ -11,6 +11,8 @@ import useStyles from './styles';
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
 
+  console.log('navbar dirender');
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">

@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     fetchProducts();
     fetchCart();
-  }, [products, cart]);
+  }, []);
 
   return (
     <div>
