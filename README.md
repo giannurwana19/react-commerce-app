@@ -1,3 +1,13 @@
+# REACT COMMERCE APP
+
+Make Online Shop Using:
+- ReactJS
+- Material UI
+- Commerce.js
+- Stripe
+
+Credits: [Javascript Mastery](https://github.com/adrianhajdin)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
