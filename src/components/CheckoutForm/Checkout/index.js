@@ -27,13 +27,14 @@ const Checkout = ({ cart }) => {
     };
 
     generateToken();
+    // eslint-disable-next-line
   }, []);
 
   const Form = () =>
     activeStep === 0 ? (
       <AddressForm checkoutToken={checkoutToken} next={next} />
     ) : (
-      <PaymentForm shippingData={shippingData} />
+      <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
     );
 
   const nextStep = () => setActiveStep(prevState => prevState + 1);
