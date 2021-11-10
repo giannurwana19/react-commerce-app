@@ -7,7 +7,7 @@ import { commerce } from '../../../lib/commerce';
 
 const steps = ['Shipping address', 'Payments details'];
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
@@ -30,13 +30,6 @@ const Checkout = ({ cart }) => {
     // eslint-disable-next-line
   }, []);
 
-  const Form = () =>
-    activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} next={next} />
-    ) : (
-      <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
-    );
-
   const nextStep = () => setActiveStep(prevState => prevState + 1);
   const backStep = () => setActiveStep(prevState => prevState - 1);
 
@@ -46,6 +39,19 @@ const Checkout = ({ cart }) => {
   };
 
   const Confirmation = () => <div>confirmation</div>;
+
+  const Form = () =>
+    activeStep === 0 ? (
+      <AddressForm checkoutToken={checkoutToken} next={next} />
+    ) : (
+      <PaymentForm
+        backStep={backStep}
+        nextStep={nextStep}
+        shippingData={shippingData}
+        checkoutToken={checkoutToken}
+        handleCaptureCheckout={handleCaptureCheckout}
+      />
+    );
 
   return (
     <>

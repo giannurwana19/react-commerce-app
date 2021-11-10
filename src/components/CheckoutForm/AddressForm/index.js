@@ -112,10 +112,10 @@ const AddressForm = ({ checkoutToken, next }) => {
           <Grid container spacing={3}>
             <FormInput name="firstName" label="Nama Depan" />
             <FormInput name="lastName" label="Nama Belakang" />
-            <FormInput name="address" label="Alamat" />
+            <FormInput name="address1" label="Alamat" />
             <FormInput name="email" label="Email" />
             <FormInput name="city" label="Kota" />
-            <FormInput name="ZIP" label="Kode Pos" />
+            <FormInput name="zip" label="Kode Pos" />
             <Grid item xs={12} sm={6}>
               <InputLabel>Negara Pengiriman</InputLabel>
               <Select
