@@ -1,6 +1,6 @@
 # REACT COMMERCE APP 😎✨🎉
 
-![image google](/public/demo.png)
+![ginpedia](/public/demo.png)
 
 Make Online Shop Using:
 
@@ -8,7 +8,7 @@ Make Online Shop Using:
 - Material UI
 - Commerce.js
 
-Credits: [Javascript Mastery](https://github.com/adrianhajdin)
+Available on [https://ginpedia.vercel.app](https://ginpedia.vercel.app)
 
 # Getting Started with Create React App
 
