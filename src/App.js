@@ -47,6 +47,8 @@ function App() {
         newOrder
       );
 
+      console.log('capture order', incomingOrder);
+
       setOrder(incomingOrder);
       refreshCart();
     } catch (err) {

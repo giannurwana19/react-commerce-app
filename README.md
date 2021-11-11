@@ -1,10 +1,12 @@
-# REACT COMMERCE APP
+# REACT COMMERCE APP 😎✨🎉
+
+![image google](/public/demo.png)
 
 Make Online Shop Using:
+
 - ReactJS
 - Material UI
 - Commerce.js
-- Stripe
 
 Credits: [Javascript Mastery](https://github.com/adrianhajdin)
 
@@ -78,3 +80,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<br>
+<br>
+
+Credits: [Javascript Mastery](https://github.com/adrianhajdin)

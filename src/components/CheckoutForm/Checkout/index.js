@@ -1,13 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Paper, Step, StepLabel, Stepper, Typography } from '@material-ui/core';
+import {
+  Paper,
+  Step,
+  StepLabel,
+  Stepper,
+  Typography,
+  CircularProgress,
+  Divider,
+  Button,
+  CssBaseline,
+} from '@material-ui/core';
 import PaymentForm from '../PaymentForm';
 import AddressForm from '../AddressForm';
 import useStyles from './styles';
 import { commerce } from '../../../lib/commerce';
+import { Link, useHistory } from 'react-router-dom';
 
 const steps = ['Shipping address', 'Payments details'];
 
 const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
+  const history = useHistory();
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
@@ -22,7 +34,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
 
         setCheckoutToken(token);
       } catch (err) {
-        console.log('error generate token', err);
+        history.push('/');
       }
     };
 
@@ -38,7 +50,41 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
     nextStep();
   };
 
-  const Confirmation = () => <div>confirmation</div>;
+  let Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant="h5">
+            Terima Kasih Atas Pembeliannya, {order.customer.firstname}{' '}
+            {order.customer.lastname}!
+          </Typography>
+          <Divider className={classes.divider} />
+          <Typography variant="subtitle2">
+            Order ref: {order.customer_reference}
+          </Typography>
+        </div>
+        <br />
+        <Button component={Link} variant="outlined" type="button" to="/">
+          Kembali ke halaman utama
+        </Button>
+      </>
+    ) : (
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
+
+  if (error) {
+    Confirmation = () => (
+      <>
+        <Typography variant="h5">Error: {error}</Typography>
+        <br />
+        <Button component={Link} variant="outlined" type="button" to="/">
+          Kembali ke halaman utama
+        </Button>
+      </>
+    );
+  }
 
   const Form = () =>
     activeStep === 0 ? (
@@ -55,6 +101,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
 
   return (
     <>
+      <CssBaseline />
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
